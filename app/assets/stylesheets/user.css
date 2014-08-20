@@ -1,0 +1,150 @@
+body {
+	font-family: Georgia, Verdana, Helvetica, Arial, sans-serif;
+	background: #d0d0d0;
+	font-size: 12px;
+}
+
+.main_box {
+	margin: 30px;
+	font-family: Georgia, Verdana, Helvetica, Arial, sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Tahoma, Arial, sans-serif;
+	text-decoration: none;
+	width: 100%
+	white-space: nowrap;
+	padding: 10px;
+	color: black;
+	background-color: #ffffff;
+	font-size: 12px;
+	border: 3px solid;
+}
+
+table
+{
+	border-spacing: 4px 0px;
+	white-space: normal;
+	text-decoration: none;
+}
+
+.page_header_table{
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing: 4px 0px;
+	white-space: normal;
+	text-decoration: none;
+}
+
+.db_entries {
+	font-variant:small-caps;
+	width: 100%
+	white-space:nowrap;
+	text-align:center;
+	vertical-align:middle;
+	color: black;
+	background-color: #ffffff;
+	font-size: 15px;
+	padding: 10px;
+	margin: auto;
+}
+
+.heading {
+	font-variant:small-caps;
+	width: 100%
+	white-space: nowrap;
+	text-align:center;
+	vertical-align:middle;
+	color: black;
+	background-color: #ffffff;
+	font-size: 25px;
+	padding: 10px;
+}
+
+.user_t{
+	border: 5px outset #009933;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	color: #009933;
+	background-color: #b0b0b0;
+}
+
+.user_td{
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing: 4px 0px;
+	white-space: normal;
+	font-size: 15px;
+	font: Verdana;
+	text-align:center;
+	font-weight: bold;
+}
+
+.comment_box {
+	margin: auto;
+	border: 7px ridge #5A0000;
+	padding: 10px;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+.comment_entry {
+	margin: auto;
+	border: 1px dotted #cccccc;
+	padding: 10px;
+}
+
+.tag_box {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.image_box {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 80px;
+	margin-bottom: 10px;
+	border: 40px outset #5A0000;
+	border-spacing: 0px 0px;
+	white-space: normal;
+	padding: 10px;
+	background-color: #000000;
+}
+
+/*******************************
+ * Simple Tools to more like lib 
+ *******************************/
+.draw_line_top {
+	border-top-style: solid;
+	border-top-width: 2px;
+	border-top-color: #cccccc;
+	padding:5px;
+}
+
+.draw_line_bottom {
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #cccccc;
+	padding:5px;
+}
+
+.tab {
+	text-indent: 20px;
+}
+
+/*******************************
+ * JS styles
+ *******************************/
+
+.tagBoxViz {
+    font-size: 200%;
+    /*background: white;*/
+    color: #000000;
+    border: 1px solid #5A0000;
+    padding: 1px;
+    position: absolute;
+    cursor: default;
+}
+
+.tagBoxInViz {}

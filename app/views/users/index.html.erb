@@ -1,0 +1,27 @@
+<!-- Page Header -->
+<p style=text-align:center> <%= @page_msg %> </p>
+<br/>
+<div class="draw_line_top"></div>
+<br/>
+<% if flash.notice %>
+	<p> <%= flash.notice %> </p>
+<% else %>
+	<br/><br/>
+<% end %>
+
+<form id="search_form">
+	<p>
+	<input style"text" name="search_box" value="" onkeyup="doSearch(this.value)" placeholder="Find friends & comments" size=25/>
+	</p>
+</form>
+
+<p id="image_search_result"></p>
+
+<!-- Page Content -->
+
+<!-- <table cellspacing="0" class="db_entries"> -->
+	<%# for usr in @user_list do %>
+		<!-- <tr><td> <%#= link_to "login", user_path("login") %> </td></tr> -->
+		<!-- <tr><td> <%#= link_to usr.login, user_path(usr.id) %> </td></tr> -->
+	<%# end %>
+<!-- </table> -->

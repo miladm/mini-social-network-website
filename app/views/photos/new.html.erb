@@ -1,0 +1,15 @@
+<% if session[:user_session] != nil %>
+	<% if flash.notice %>
+		<p> <%= flash.notice %> </p>
+	<% else %>
+		<br/><br/>
+	<% end %>
+
+	<%= form_for :new_photo, :url => @post_to do |form| %>
+		<p><%= form.label "Post a new photo" %></p>
+		<p><%= form.file_field(:photo) %></p>
+		<p><%= form.submit "Post" %></p>
+	<% end %>
+<% else %>
+	<p> Please <%= link_to "login", user_path("login") %> to add your new photos. </p>
+<% end %>

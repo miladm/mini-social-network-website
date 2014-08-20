@@ -1,0 +1,6 @@
+<% if flash.notice %>
+	<p> <%= flash.notice %> </p>
+	<p> Check it out on your  <%= link_to "profile", user_path(session[:user_session].id) %></p>
+<% else %>
+	<br/><br/>
+<% end %>

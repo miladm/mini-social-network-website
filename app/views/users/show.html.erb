@@ -1,0 +1,89 @@
+<!-- Page Header -->
+<!-- Print the title of the page -->
+<table class="user_t">
+	<tr>
+		<td class="user_td"> <%= @user_elem.first_name %> <%= @user_elem.last_name %>'s Photos </td>
+	</tr>
+</table>
+<div class="draw_line_bottom"></div>
+<br/>
+
+<!-- Page Content -->
+<% if flash.notice %>
+  <p><%= flash.notice %></p>
+<% end %>
+
+<br/>
+
+<!-- Print each Image with its comment -->
+<table class="comment_box">
+	<tr><td><%= link_to "Post Photos", photo_path("new") %></td></tr>
+</table>
+
+<% @user_elem.photos.each() do |p| %>
+	<% @pic_id = ["pic",p.id.to_s].join('') %>
+	<% @tagBox_id = ["tagBox",p.id.to_s].join('') %>
+	<table class="image_box">
+		<tr><td>
+			<div id=<%= @pic_id %>>
+				<!-- DRAW PHOTO TAGS -->
+				<% @tags = Tag.where(:photo_id => p.id) %>
+					<% @tags.each() do |t| %>
+						<% @top = t.top %>
+						<% @left = t.left %>
+						<% @height = t.height %>
+						<% @width = t.width %>
+						<% @name = User.find(t.user_id).full_name %>
+						<% @tag_id = ["tag",p.id.to_s,t.id.to_s].join('') %>
+						<% @style = ["position:absolute;top:", @top, "px;left:", @left, "px;width:", @width, "px;height:", @height, "px;border-style:solid;border-width:1px;border-color:white;color:transparent;"].join('') %>
+						<div id=<%= @tag_id %> style=<%= @style %>> <%= @name %> </div>
+					    <script type="text/javascript">
+					    //<![CDATA[
+					        new Drawer(<%= @tag_id %>);
+					    //]]>
+					    </script>
+				<% end %>
+				<!-- TAG BOX TO DRAW NEW TAGS -->
+				<div class="tagBoxInViz" id=<%= @tagBox_id %>></div>
+			    <script type="text/javascript">
+			    //<![CDATA[
+			        new Tagger(<%= @pic_id %>, <%= @tagBox_id %>);
+			    //]]>
+			    </script>
+				<!-- DRAW IMAGE -->
+				<%= image_tag p.file_name, height: "350" %>
+			</div>
+		</td></tr>
+	</table>
+	
+	<!-- DB STORAGE FORM FOR TAGS -->
+	<div class="tag_box">
+		<% @tag_url = ['/photos/', p.id.to_s,'/tags'].join('') %>
+		<%= form_for @pic_id, :url => @tag_url do |f| %>
+			<%= f.label @pic_id %>
+			<%= f.hidden_field :tagTop, :value => 0 %>
+			<%= f.hidden_field :tagLeft, :value => 0 %>
+			<%= f.hidden_field :tagHeight, :value => 0 %>
+			<%= f.hidden_field :tagWidth, :value => 0 %>
+			<%= f.select :id, @users_option.map{ |c| [c.full_name, "#{c.id}"]} %>
+			<%= f.submit "Tag!" %>
+		<% end %>
+	</div>
+	<br/>
+
+	<table class="comment_box">	
+		<% if p.comments.size() != 0 %> <!-- No comments? -->
+			<tr><td> <b>Photo Comments:</b> </td></tr>
+
+			<% p.comments.each() do |c| %>
+				<tr><td class="comment_entry">
+				<p> Date: <%= c.date_time %> </p>
+				<p> User: <%= link_to find_user_name(c.user_id), user_path(c.user_id) %> </p>
+				<br/>
+				<p class="tab"> <%= c.comment %> </p>
+				</td></tr>
+			<% end %>
+		<% end %>
+		<tr><td> <%= link_to "Comment", photo_path([p.id, "/comments/new"].join('')) %> </td></tr>
+	</table>
+<% end %>

@@ -1,0 +1,21 @@
+<%= image_tag @photo.file_name %>
+<br/><br/><br/><br/>
+
+
+<% if session[:user_session] != nil %>
+	<% if flash.notice %>
+		<p> <%= flash.notice %> </p>
+	<% else %>
+		<br/><br/>
+	<% end %>
+
+	<%= form_for :comment, :url => @post_to do |form| %>
+	  <%= form.label "Comment" %>
+	  <br/>
+	  <%= form.text_area :text, :cols => "40", :rows => "3" %>
+	  <br/>
+	  <%= form.submit "Post" %>
+	<% end %>
+<% else %>
+	<p> Please <%= link_to "login", user_path("login") %> to write comments. </p>
+<% end %>

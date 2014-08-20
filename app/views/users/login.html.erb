@@ -1,0 +1,20 @@
+<% if flash.notice %>
+	<p> <%= flash.notice %> </p>
+<% else %>
+	<br/><br/>
+<% end %>
+
+
+<!-- LOGING FORM -->
+<%= form_for :user, :url => "/users/post_login" do |form| %>
+	<table>
+		<tr><td><%= form.label "Username: " %></td>
+			<td><%= form.text_field(:login) %></td></tr>
+
+		<tr><td><%= form.label "Password: " %></td>
+			<td><%= form.password_field(:password) %></td>
+			<td><%= form.submit "Login" %></td></tr>
+
+		<tr><td/><td><%= link_to "Create an Account", user_path("new") %></td></tr>
+	</table>
+<% end %>

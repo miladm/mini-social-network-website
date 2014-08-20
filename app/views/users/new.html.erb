@@ -1,0 +1,31 @@
+<% if session[:user_session] == nil %>
+	<% if flash.notice %>
+		<p> <%= flash.notice %> </p>
+	<% else %>
+		<br/><br/>
+	<% end %>
+
+	<%= form_for :new_user, :url => @post_to do |form| %>
+		<table>
+			<tr><td><%= form.label "First Name" %></td>
+			    <td><%= form.text_field(:first_name) %></td>
+
+			<tr><td><%= form.label "Last Name" %></td>
+			    <td><%= form.text_field(:last_name) %></td>
+
+			<tr><td><%= form.label "Username" %></td>
+			    <td><%= form.text_field(:login) %></td>
+
+			<tr><td><%= form.label "Create a Password" %></td>
+			    <td><%= form.password_field(:password1) %></td>
+
+			<tr><td><%= form.label "Confirm you Password" %></td>
+			    <td><%= form.password_field(:password2) %></td>
+
+			<tr><td/><td><%= form.submit "Create Account" %></td></tr>
+		</table>
+	<% end %>
+<% else %>
+	<p> <%= session[:user_session].first_name %> is logged int. </p>
+	<p> Please <%= link_to "logout", user_path("logout") %> to register a new account. </p>
+<% end %>
