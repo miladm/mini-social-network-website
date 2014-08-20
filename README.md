@@ -10,4 +10,7 @@ Features:
 * Comments for photos
 
 Backend: Ruby-on-Rails and SQL
+
 Frontend: Javascript
+
+Area: Web Applications
