@@ -1,4 +1,4 @@
-mini-social-network-website
+social-network-website
 ===========================
 
 A simple social network website.
