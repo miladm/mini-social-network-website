@@ -9,7 +9,7 @@ Features:
 * Photo tagging
 * Comments for photos
 
-Backend: Ruby-on-Rails and SQL
+Backend: Ruby-on-Rails / SQL
 
 Frontend: Javascript
 
